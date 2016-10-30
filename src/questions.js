@@ -45,7 +45,7 @@ export const AllQuestions = [
   },
   {
     question: "Relative minor of F#",
-    answer: ['e♭', 'ef', 'ds', 'd#']
+    answer: ['ds', 'd#']
   },
   // {
 
