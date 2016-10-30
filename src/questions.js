@@ -9,7 +9,7 @@ export const AllQuestions = [
   },
   {
     question: "Relative minor of B",
-    answer: ['gs', 'g#', 'A♭', 'af']
+    answer: ['gs', 'g#']
   },
   {
     question: "Relative minor of D",
@@ -117,7 +117,7 @@ export const AllQuestions = [
   },
   {
     question: "V of B",
-    answer: ['fs', 'f#', 'gf', 'g♭']
+    answer: ['fs', 'f#']
   },
   {
     question: "V of D",
