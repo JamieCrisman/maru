@@ -10,8 +10,10 @@ class App extends Component {
           <h2>Circle of Fifths</h2>
         </div>
         <CircleOfFifths />
-        <div>
-          Enter to submit answer
+        <div className="helpText">
+          Enter to submit answer<br />
+          Type 'F' for flat <br />
+          Type 'S' for sharp
         </div>
       </div>
     );
