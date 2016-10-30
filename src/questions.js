@@ -197,7 +197,7 @@ export const AllQuestions = [
   },
   {
     question: "IV of D♭",
-    answer: ['f#', 'fs', 'g♭', 'gf']
+    answer: ['g♭', 'gf']
   },
   {
     question: "IV of F#",
