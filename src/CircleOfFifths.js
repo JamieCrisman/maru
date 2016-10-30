@@ -13,7 +13,9 @@ class CircleOfFifths extends Component {
       value: '',
       questionId: this.selectAQuestionId(AllQuestions.length),
       previousAnswer: '',
-      previousQuestion: ''
+      previousQuestion: '',
+      correctCount: 0,
+      submissions: 0
     };
 
   }
@@ -26,7 +28,19 @@ class CircleOfFifths extends Component {
   submitAnswer(event) {
     event.preventDefault();
     if(this.state.value !== '' && this.state.questionsAvailable.length > 0) {
-      this.setState({answer: this.state.value, value: '', isLastAnswerCorrect: this.evaluateAnswer(this.state.value)});
+      let isLastAnswerCorrect = this.evaluateAnswer(this.state.value);
+      let correctCount = this.state.correctCount;
+      let submissions = this.state.submissions + 1;
+      if(isLastAnswerCorrect) {
+        correctCount += 1;
+      }
+      this.setState({
+        answer: this.state.value, 
+        value: '', 
+        isLastAnswerCorrect,
+        correctCount,
+        submissions
+      });
     }
   }
 
@@ -105,6 +119,10 @@ class CircleOfFifths extends Component {
   }
 
   render() {
+    let accuracy = '';
+    if (this.state.correctCount > 0) {
+      accuracy = 'Accuracy: ' + parseInt(((parseFloat(this.state.correctCount) / parseFloat(this.state.submissions)) * 100), 10) + '%';
+    }
     return (
       <div className="CircleOfFifths">
         <form onSubmit={this.submitAnswer.bind(this)}>
@@ -113,7 +131,8 @@ class CircleOfFifths extends Component {
           <input type="text" maxLength="2" value={this.state.value} onChange={this.setValue.bind(this)}/>
         </form>
         <div className="questionsLeft">
-          Questions Left: {this.state.questionsAvailable.length}
+          Questions Left: {this.state.questionsAvailable.length} <br />
+          {accuracy}
         </div>
       </div>
     );
